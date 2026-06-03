@@ -1,0 +1,140 @@
+.kanban-container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  min-height: calc(100vh - 120px);
+  overflow-x: auto;
+}
+
+.columna {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  background: var(--bg-column);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease;
+}
+
+.columna-titulo {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.columna-titulo.pendiente {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+[data-theme="dark"] .columna-titulo.pendiente {
+  background: #3e2723;
+  color: #ffb74d;
+}
+
+.columna-titulo.proceso {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+[data-theme="dark"] .columna-titulo.proceso {
+  background: #0d2137;
+  color: #64b5f6;
+}
+
+.columna-titulo.finalizado {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+[data-theme="dark"] .columna-titulo.finalizado {
+  background: #1b3d1b;
+  color: #81c784;
+}
+
+.lista-tareas {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.tarjeta {
+  cursor: grab;
+}
+
+.tarjeta:active {
+  cursor: grabbing;
+}
+
+.tarjeta.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.tarjeta.cdk-drag-preview {
+  box-shadow: var(--shadow-lg);
+  border-radius: 8px;
+  transform: rotate(3deg);
+  background: var(--bg-card);
+}
+
+.cdk-drop-list-dragging .tarjeta:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.descripcion {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.prioridad {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.prioridad-alta {
+  background: #ffcdd2;
+  color: #c62828;
+}
+
+.prioridad-media {
+  background: #fff9c4;
+  color: #f9a825;
+}
+
+.prioridad-baja {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+.fecha {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.vacio {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 32px 0;
+}

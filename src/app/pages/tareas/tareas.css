@@ -1,0 +1,253 @@
+.contenedor {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.contadores {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.contador {
+  flex: 1;
+  min-width: 120px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contador.pendiente {
+  border-left-color: var(--warning);
+}
+
+.contador.proceso {
+  border-left-color: var(--info);
+}
+
+.contador.finalizado {
+  border-left-color: var(--success);
+}
+
+.contador.total {
+  border-left-color: var(--text-muted);
+}
+
+.contador-numero {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  display: block;
+}
+
+.contador.pendiente .contador-numero {
+  color: var(--warning);
+}
+
+.contador.proceso .contador-numero {
+  color: var(--info);
+}
+
+.contador.finalizado .contador-numero {
+  color: var(--success);
+}
+
+.contador.total .contador-numero {
+  color: var(--text-secondary);
+}
+
+.contador-texto {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+mat-card {
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: background 0.3s ease;
+}
+
+.card-formulario {
+  margin-bottom: 24px;
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.formulario button {
+  height: 56px;
+  border-radius: 12px;
+  font-weight: 600;
+  align-self: start;
+}
+
+.tabla-tareas {
+  width: 100%;
+}
+
+.mat-mdc-header-row {
+  background-color: var(--primary);
+}
+
+.mat-mdc-header-cell {
+  color: white !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.mat-mdc-cell {
+  vertical-align: middle;
+  color: var(--text-primary);
+}
+
+.mat-mdc-row:hover {
+  background-color: var(--bg-hover);
+}
+
+.mat-column-id {
+  width: 110px;
+}
+
+.mat-column-fecha {
+  width: 140px;
+}
+
+.mat-column-prioridad {
+  width: 140px;
+}
+
+.mat-column-estado {
+  width: 160px;
+}
+
+.mat-column-acciones {
+  width: 240px;
+}
+
+.acciones {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.acciones button {
+  min-width: 105px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: none;
+  white-space: nowrap;
+}
+
+.btn-estado {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+.btn-estado:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border-left: 4px solid transparent;
+}
+
+.prioridad-alta {
+  color: var(--warn);
+  border-left-color: var(--warn);
+  background-color: #fef2f2;
+}
+
+.prioridad-media {
+  color: var(--warning);
+  border-left-color: var(--warning);
+  background-color: #fffbeb;
+}
+
+.prioridad-baja {
+  color: var(--success);
+  border-left-color: var(--success);
+  background-color: #ecfdf5;
+}
+
+.estado-pendiente {
+  color: var(--warning);
+  border-left-color: var(--warning);
+  background-color: #fffbeb;
+}
+
+.estado-proceso {
+  color: var(--info);
+  border-left-color: var(--info);
+  background-color: #eff6ff;
+}
+
+.estado-finalizada {
+  color: var(--success);
+  border-left-color: var(--success);
+  background-color: #ecfdf5;
+}
+
+.mensaje {
+  background-color: #fef3c7 !important;
+  color: #92400e;
+  text-align: center;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .formulario {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acciones button {
+    width: 100%;
+  }
+
+  .mat-column-descripcion {
+    display: none;
+  }
+}

@@ -1,0 +1,99 @@
+<div class="layout">
+
+  <aside class="menu-lateral" role="navigation" aria-label="Menú principal">
+    <div class="marca">
+      <div class="logo" aria-hidden="true">GT</div>
+      <div>
+        <h2>Gestión</h2>
+        <p>Tareas</p>
+      </div>
+    </div>
+
+    <nav>
+      <a
+        routerLink="/"
+        routerLinkActive="activo"
+        [routerLinkActiveOptions]="{ exact: true }"
+        aria-current="page"
+      >
+        Inicio
+      </a>
+
+      <a
+        routerLink="/tareas"
+        routerLinkActive="activo"
+      >
+        Tareas
+      </a>
+
+      <a
+        routerLink="/kanban"
+        routerLinkActive="activo"
+      >
+        Kanban
+      </a>
+
+      <a
+        routerLink="/acerca"
+        routerLinkActive="activo"
+      >
+        Acerca
+      </a>
+    </nav>
+
+    <div class="accesibilidad" role="region" aria-label="Opciones de accesibilidad">
+      <span class="accesibilidad-label">Accesibilidad</span>
+      <div class="accesibilidad-botones">
+        <button
+          class="btn-accesibilidad"
+          (click)="acc.decreaseFontSize()"
+          [disabled]="acc.fontSize() === 'normal'"
+          title="Reducir tamaño de letra"
+          aria-label="Reducir tamaño de letra"
+        >
+          A-
+        </button>
+        <button
+          class="btn-accesibilidad"
+          (click)="acc.resetFontSize()"
+          title="Restablecer tamaño de letra"
+          aria-label="Restablecer tamaño de letra"
+        >
+          A
+        </button>
+        <button
+          class="btn-accesibilidad"
+          (click)="acc.increaseFontSize()"
+          [disabled]="acc.fontSize() === 'xlarge'"
+          title="Aumentar tamaño de letra"
+          aria-label="Aumentar tamaño de letra"
+        >
+          A+
+        </button>
+        <button
+          class="btn-accesibilidad"
+          (click)="acc.toggleDarkMode()"
+          [class.activo]="acc.isDarkMode()"
+          title="Cambiar modo oscuro"
+          aria-label="Cambiar modo oscuro"
+        >
+          {{ acc.isDarkMode() ? '☀' : '☾' }}
+        </button>
+        <button
+          class="btn-accesibilidad"
+          [class.activo]="acc.isReading()"
+          (click)="acc.readScreen()"
+          [title]="acc.isReading() ? 'Detener lectura' : 'Leer pantalla'"
+          [attr.aria-label]="acc.isReading() ? 'Detener lectura' : 'Leer pantalla'"
+        >
+          ♢
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="contenido" role="main">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>
